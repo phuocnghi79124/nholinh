@@ -12,24 +12,21 @@
 <body>
 
   <h1>Anh có điều muốn nói</h1>
-  <button id="playButton">Nhấn đây nè Sol</button>
-
-  <audio id="audioPlayer" src="assets/audio/TBN.mp3" preload="auto"></audio> 
-
+  <button id="playButton" onclick="generateRandomNotifications()">Nhấn đây nè Sol</button>
+  <div class="final-message" id="finalMessage" onclick="redirectToNewPage()">
+    <p id="text1"></p>
+    <p id="text2"></p>
+  </div>
+  <audio id="audioPlayer" src="./TBN.mp3"></audio> 
   <script>
     const playButton = document.getElementById("playButton");
     const audioPlayer = document.getElementById("audioPlayer");
 
     playButton.addEventListener("click", function() {
-        audioPlayer.play().then(() => {
-            console.log("Audio đang phát...");
-        }).catch((error) => {
-            console.log("Lỗi khi phát âm thanh: ", error);
-        });
+        audioPlayer.play();
     });
-  </script>
-
-  <script src="./script.js"></script>
+</script>
+<script src="./script.js"></script>
 </body>
 
 </html>

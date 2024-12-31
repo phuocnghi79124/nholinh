@@ -12,21 +12,35 @@
 <body>
 
   <h1>Anh có điều muốn nói</h1>
-  <button id="playButton" onclick="generateRandomNotifications()">Nhấn đây nè Sol</button>
-  <div class="final-message" id="finalMessage" onclick="redirectToNewPage()">
-    <p id="text1"></p>
-    <p id="text2"></p>
+  <button id="playButton">Nhấn đây nè Sol</button>
+
+  <div class="final-message" id="finalMessage">
+    <p id="text1">Thông điệp cuối cùng sẽ xuất hiện tại đây!</p>
+    <p id="text2">Nhấp vào để chuyển hướng...</p>
   </div>
-  <audio id="audioPlayer" src="./TBN.mp3"></audio> 
+
+  <audio id="audioPlayer" src="assets/audio/TBN.mp3"></audio> 
+
   <script>
     const playButton = document.getElementById("playButton");
     const audioPlayer = document.getElementById("audioPlayer");
+    const finalMessage = document.getElementById("finalMessage");
 
     playButton.addEventListener("click", function() {
         audioPlayer.play();
+        setTimeout(function() {
+            finalMessage.style.display = "block";
+        }, 1000);
     });
-</script>
-<script src="./script.js"></script>
+
+    function redirectToNewPage() {
+        window.location.href = "https://example.com";
+    }
+
+    finalMessage.addEventListener("click", redirectToNewPage);
+  </script>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
